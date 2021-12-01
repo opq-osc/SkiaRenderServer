@@ -13,17 +13,6 @@ namespace SkiaRenderServerCore.Render
 
         public SKColor BackgroundColor { get; set; }
 
-        public override void Render(SKCanvas canvas)
-        {
-            this.RenderBackground(canvas);
-            this.RenderForeground(canvas);
-            foreach (var child in Children)
-            {
-                child.Render(canvas);
-            }
-            canvas.Translate(-Margin.Left - Padding.Left, -Margin.Top - Padding.Top);
-        }
-
         protected override void RenderBackground(SKCanvas canvas)
         {
             base.RenderBackground(canvas);
@@ -34,6 +23,15 @@ namespace SkiaRenderServerCore.Render
             };
 
             canvas.DrawRect(0, 0, Width, Height, paint);
+        }
+
+        protected override void RenderForeground(SKCanvas canvas)
+        {
+            base.RenderForeground(canvas);
+            foreach (var child in Children)
+            {
+                child.Render(canvas);
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace SkiaRenderServerCore.Render
         /// </summary>
         public Padding Padding { get; set; }
 
-        public virtual void Render(SKCanvas canvas)
+        public void Render(SKCanvas canvas)
         {
             this.RenderBackground(canvas);
             this.RenderForeground(canvas);

@@ -28,12 +28,19 @@ namespace SkiaRenderServerCore.Render.Tests
             };
             grid.Children.Add(new Box
             {
+                Width = 600,
+                Height = 600,
+                ForegroundColor = SKColors.Yellow,
+                Margin = new Margin(100, 100),
+            });
+            grid.Children.Add(new Box
+            {
                 Width = 400,
                 Height = 400,
                 Margin = new Margin(200, 200),
                 Padding = new Padding(100, 100),
                 BackgroundColor = SKColors.Green,
-                ForegroundColor = SKColors.Red,
+                ForegroundColor = SKColors.Orange,
             });
 
             var bitmap = new SKBitmap(1200, 1200);
