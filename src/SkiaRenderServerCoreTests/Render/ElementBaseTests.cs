@@ -18,7 +18,7 @@ namespace SkiaRenderServerCore.Render.Tests
         [TestMethod()]
         public void RenderTest()
         {
-            var grid = new Grid()
+            var grid1 = new Grid()
             {
                 Width = 800,
                 Height = 800,
@@ -26,14 +26,14 @@ namespace SkiaRenderServerCore.Render.Tests
                 Margin = new Margin(200, 200),
                 Padding = new Padding(0, 0)
             };
-            grid.Children.Add(new Box
+            grid1.Children.Add(new Box
             {
                 Width = 600,
                 Height = 600,
                 ForegroundColor = SKColors.Yellow,
                 Margin = new Margin(100, 100),
             });
-            grid.Children.Add(new Box
+            grid1.Children.Add(new Box
             {
                 Width = 400,
                 Height = 400,
@@ -43,12 +43,48 @@ namespace SkiaRenderServerCore.Render.Tests
                 ForegroundColor = SKColors.Orange,
             });
 
-            var bitmap = new SKBitmap(1200, 1200);
+            var grid2 = new Grid()
+            {
+                Width = 800,
+                Height = 800,
+                BackgroundColor = SKColors.Blue,
+                Margin = new Margin(1000, 200),
+                Padding = new Padding(0, 0)
+            };
+            grid2.Children.Add(new Box
+            {
+                Width = 600,
+                Height = 600,
+                ForegroundColor = SKColors.Yellow,
+                Margin = new Margin(100, 100),
+            });
+            grid2.Children.Add(new Box
+            {
+                Width = 400,
+                Height = 400,
+                Margin = new Margin(200, 200),
+                Padding = new Padding(100, 100),
+                BackgroundColor = SKColors.Green,
+                ForegroundColor = SKColors.Orange,
+            });
+
+            var grid3 = new Grid
+            {
+                Width = 2000,
+                Height = 1200,
+                BackgroundColor = SKColors.Purple,
+                Margin = new Margin(200, 0),
+            };
+            grid3.Children.Add(grid1);
+            grid3.Children.Add(grid2);
+            
+
+            var bitmap = new SKBitmap(2400, 1200);
             var canvas = new SKCanvas(bitmap);
 
             canvas.Clear(SKColors.White);
 
-            grid.Render(canvas);
+            grid3.Render(canvas);
 
             var image = SKImage.FromBitmap(bitmap);
             var file = File.Open("RenderTest.png", FileMode.Create);
