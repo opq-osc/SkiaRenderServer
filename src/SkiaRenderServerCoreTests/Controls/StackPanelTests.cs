@@ -295,48 +295,56 @@ namespace SkiaRenderServerCore.Controls.Tests
             panel1.AddChild(new Box
             {
                 Height = 100,
+                Width = 300,
                 ForegroundColor = SKColors.Red,
             });
             panel1.AddChild(new Box
             {
                 Height = 100,
+                Width = 400,
                 ForegroundColor = SKColors.Orange,
             });
             panel1.AddChild(new Box
             {
                 Height = 100,
+                Width = 500,
                 ForegroundColor = SKColors.Green,
             });
 
             var panel2 = new StackPanel()
             {
                 Orientation = Orientation.Horizontal,
-                Height = 600
+                //Height = 600
                 //HorizontalAlignment = HorizontalAlignment.Center,
             };
             panel2.AddChild(new Box
             {
                 Width = 100,
+                Height = 300,
                 ForegroundColor = SKColors.Red,
             });
             panel2.AddChild(new Box
             {
                 Width = 100,
+                Height = 250,
                 ForegroundColor = SKColors.Orange,
             });
             panel2.AddChild(new Box
             {
                 Width = 100,
+                Height = 200,
                 ForegroundColor = SKColors.Yellow,
             });
             panel2.AddChild(new Box
             {
                 Width = 100,
+                Height = 150,
                 ForegroundColor = SKColors.Blue,
             });
             panel2.AddChild(new Box
             {
                 Width = 100,
+                Height = 100,
                 ForegroundColor = SKColors.Purple,
             });
 

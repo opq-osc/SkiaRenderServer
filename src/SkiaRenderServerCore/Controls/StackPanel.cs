@@ -95,18 +95,6 @@ namespace SkiaRenderServerCore.Controls
             if (Orientation == Orientation.Vertical)
                 canvas.Translate(0, -offset);
         }
-
-        protected override void RenderBackground(SKCanvas canvas)
-        {
-            base.RenderBackground(canvas);
-            using var paint = new SKPaint()
-            {
-                Style = SKPaintStyle.Fill,
-                Color = SKColors.Gray
-            };
-
-            canvas.DrawRect(0, 0, Width, Height, paint);
-        }
     }
 
     public enum Orientation
