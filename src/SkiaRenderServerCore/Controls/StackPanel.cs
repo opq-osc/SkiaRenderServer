@@ -10,6 +10,11 @@ namespace SkiaRenderServerCore.Controls
 {
     public class StackPanel : ElementContainerBase
     {
+        public StackPanel()
+        {
+
+        }
+
         public Orientation Orientation { get; set; }
         public override void AddChild(ElementBase element)
         {
@@ -29,12 +34,12 @@ namespace SkiaRenderServerCore.Controls
                     foreach (var child in Children)
                         width += child.Width + child.Margin.Left + child.Margin.Right;
                 }
-                if (Orientation == Orientation.Vertical && width == 0)
-                {
-                    var childWidth = from child in Children
-                                      select child.Width + child.Margin.Left + child.Margin.Right;
-                    width = childWidth.Max() + Padding.Left + Padding.Right;
-                }
+                //if (Orientation == Orientation.Vertical && width == 0)
+                //{
+                //    var childWidth = from child in Children
+                //                      select child.Width + child.Margin.Left + child.Margin.Right;
+                //    width = childWidth.Max() + Padding.Left + Padding.Right;
+                //}
                 return width;
             }
             set => width = value;
@@ -50,12 +55,12 @@ namespace SkiaRenderServerCore.Controls
                     foreach (var child in Children)
                         height += child.Height + child.Margin.Top + child.Margin.Bottom;
                 }
-                if (Orientation == Orientation.Horizontal && height == 0)
-                {
-                    var childHeight = from child in Children
-                                      select child.Height + child.Margin.Top + child.Margin.Bottom;
-                    height = childHeight.Max() + Padding.Top + Padding.Bottom;
-                }
+                //if (Orientation == Orientation.Horizontal && height == 0)
+                //{
+                //    var childHeight = from child in Children
+                //                      select child.Height + child.Margin.Top + child.Margin.Bottom;
+                //    height = childHeight.Max() + Padding.Top + Padding.Bottom;
+                //}
                 return height;
             }
             set => height = value;
@@ -94,6 +99,20 @@ namespace SkiaRenderServerCore.Controls
                 canvas.Translate(-offset, 0);
             if (Orientation == Orientation.Vertical)
                 canvas.Translate(0, -offset);
+        }
+
+        protected override void RenderBackground(SKCanvas canvas)
+        {
+            base.RenderBackground(canvas);
+
+            using var paint = new SKPaint()
+            {
+                Style = SKPaintStyle.Fill,
+                Color = SKColors.Gray
+            };
+
+            canvas.DrawRect(0, 0, Width - Padding.Left - Padding.Right,
+                                  Height - Padding.Top - Padding.Bottom, paint);
         }
     }
 

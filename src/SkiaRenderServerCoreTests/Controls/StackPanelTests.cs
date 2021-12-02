@@ -25,6 +25,7 @@ namespace SkiaRenderServerCore.Controls.Tests
                 Padding = new Padding(100, 0),
                 RangeSize = new SKSize(1000, 2000),
                 VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
             };
             panel.AddChild(new Box
             {
@@ -314,7 +315,7 @@ namespace SkiaRenderServerCore.Controls.Tests
             var panel2 = new StackPanel()
             {
                 Orientation = Orientation.Horizontal,
-                //Height = 600
+                Height = 600
                 //HorizontalAlignment = HorizontalAlignment.Center,
             };
             panel2.AddChild(new Box
