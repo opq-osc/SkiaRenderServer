@@ -125,11 +125,11 @@ namespace SkiaRenderServerCore.Controls.Tests
             panel.Render(canvas);
 
             var image = SKImage.FromBitmap(bitmap);
-            var file = File.Open("StackPanelTest1.png", FileMode.Create);
+            var file = File.Open("StackPanelTest2.png", FileMode.Create);
             image.Encode(SKEncodedImageFormat.Png, 90).SaveTo(file);
             file.Close();
 
-            var fileInfo = new FileInfo("StackPanelTest1.png");
+            var fileInfo = new FileInfo("StackPanelTest2.png");
             Assert.IsTrue(fileInfo.Exists);
             Process.Start("explorer.exe", fileInfo.FullName);
         }
