@@ -33,5 +33,12 @@ namespace SkiaRenderServerCore.Render
                 child.Render(canvas);
             }
         }
+
+        public override void AddChild(ElementBase element)
+        {
+            base.AddChild(element);
+            element.RangeSize = new SKSize(Width - Padding.Left - Padding.Right,
+                Height - Padding.Top - Padding.Bottom);
+        }
     }
 }

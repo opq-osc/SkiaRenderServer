@@ -18,7 +18,22 @@ namespace SkiaRenderServerCore.Render
         /// <summary>
         /// 子元素
         /// </summary>
-        public List<ElementBase> Children { get; set; }
+        protected List<ElementBase> Children { get; set; }
+
+        /// <summary>
+        /// 添加子元素
+        /// </summary>
+        /// <param name="element"></param>
+        public virtual void AddChild(ElementBase element)
+        {
+            Children.Add(element);
+            element.Parent = this;
+        }
+
+        public IEnumerable<ElementBase> GetChildren()
+        {
+            return Children.AsReadOnly();
+        }
 
     }
 }
