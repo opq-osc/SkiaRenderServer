@@ -207,11 +207,11 @@ namespace SkiaRenderServerCore.Render.Tests
             grid1.Render(canvas);
 
             var image = SKImage.FromBitmap(bitmap);
-            var file = File.Open("RenderTest3.png", FileMode.Create);
+            var file = File.Open("RenderTest4.png", FileMode.Create);
             image.Encode(SKEncodedImageFormat.Png, 90).SaveTo(file);
             file.Close();
 
-            var fileInfo = new FileInfo("RenderTest3.png");
+            var fileInfo = new FileInfo("RenderTest4.png");
             Assert.IsTrue(fileInfo.Exists);
             Process.Start("explorer.exe", fileInfo.FullName);
         }
